@@ -25,8 +25,8 @@ else:
 def getVerifiedSubFromToken(token, domain, audience, unsafe_url_flag=False):
     """Get verified sub from token."""
     domain = "https://" + domain
-    if unsafe_url_flag is False and domain[-13:] != ".us.auth0.com":
-        print('domain should end with ".us.auth0.com" (no slash)')
+    if unsafe_url_flag is False and domain[-10:] != ".auth0.com":
+        print('domain should end with ".auth0.com" (no slash)')
         raise ValueError
     jsonurl = urlopen(domain + "/.well-known/jwks.json")
     jwks = json.loads(jsonurl.read())
